@@ -92,3 +92,10 @@ variable "rds_postgres_db_name" {
   type        = string
   default     = "retailstore"
 }
+
+
+variable "student_id" {
+  description = "Student ID for unique S3 bucket naming"
+  type        = string
+  default     = "394747153553"
+}

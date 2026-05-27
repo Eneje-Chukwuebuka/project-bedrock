@@ -61,3 +61,12 @@ module "dynamodb" {
   project_name = var.project_name
   tags         = var.tags
 }
+
+# ─── S3 + LAMBDA MODULE ─────────────────────────────────
+module "s3_lambda" {
+  source = "./modules/s3-lambda"
+
+  project_name = var.project_name
+  student_id   = var.student_id
+  tags         = var.tags
+}
