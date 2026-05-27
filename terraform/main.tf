@@ -5,13 +5,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 5.0"
     }
-  }
-}
-
-provider "aws" {
-  region = var.region
-  default_tags {
-    tags = var.tags
+    random = {
+      source  = "hashicorp/random"
+      version = "~> 3.0"
+    }
   }
 }
 
@@ -41,4 +38,26 @@ module "eks" {
   node_min_size      = var.eks_node_min_size
   node_max_size      = var.eks_node_max_size
   tags               = var.tags
+}
+
+# ─── RDS MODULE ─────────────────────────────────────────
+module "rds" {
+  source = "./modules/rds"
+
+  project_name          = var.project_name
+  vpc_id                = module.vpc.vpc_id
+  private_subnet_ids    = module.vpc.private_subnet_ids
+  eks_security_group_id = module.eks.cluster_security_group_id
+  instance_class        = var.rds_instance_class
+  mysql_db_name         = var.rds_mysql_db_name
+  postgres_db_name      = var.rds_postgres_db_name
+  tags                  = var.tags
+}
+
+# ─── DYNAMODB MODULE ────────────────────────────────────
+module "dynamodb" {
+  source = "./modules/dynamodb"
+
+  project_name = var.project_name
+  tags         = var.tags
 }
