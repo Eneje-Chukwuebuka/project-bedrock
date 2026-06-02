@@ -16,3 +16,4 @@ terraform.tfvars
 .DS_Store
 tplan
 terraform/tfplan.out
+*.tgz
