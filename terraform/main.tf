@@ -69,4 +69,4 @@ module "s3_lambda" {
   project_name = var.project_name
   student_id   = var.student_id
   tags         = var.tags
-}
+}# CI/CD trigger
