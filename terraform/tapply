@@ -1,13 +1,153 @@
-[33m╷[0m[0m
-[33m│[0m [0m[1m[33mWarning: [0m[0m[1mDeprecated Parameter[0m
-[33m│[0m [0m
-[33m│[0m [0m[0mThe parameter "dynamodb_table" is deprecated. Use parameter "use_lockfile"
-[33m│[0m [0minstead.
-[33m╵[0m[0m
 Acquiring state lock. This may take a few moments...
+[0m[1mmodule.s3_lambda.data.archive_file.lambda: Reading...[0m[0m
+[0m[1mmodule.rds.random_password.postgres: Refreshing state... [id=none][0m
+[0m[1mmodule.rds.random_password.mysql: Refreshing state... [id=none][0m
+[0m[1mmodule.s3_lambda.data.archive_file.lambda: Read complete after 0s [id=d320d78bfa6e28081775e44cc5f848d582d98d79][0m
+[0m[1mmodule.rds.aws_secretsmanager_secret.mysql: Refreshing state... [id=arn:aws:secretsmanager:us-east-1:394747153553:secret:project-bedrock/rds/mysql-1BOrAg][0m
+[0m[1mmodule.eks.aws_iam_role.node_group: Refreshing state... [id=project-bedrock-eks-node-role][0m
+[0m[1mmodule.vpc.aws_eip.nat: Refreshing state... [id=eipalloc-014fcc8e89d2c540d][0m
+[0m[1mmodule.dynamodb.aws_dynamodb_table.orders: Refreshing state... [id=project-bedrock-orders][0m
+[0m[1mmodule.rds.aws_secretsmanager_secret.postgres: Refreshing state... [id=arn:aws:secretsmanager:us-east-1:394747153553:secret:project-bedrock/rds/postgres-pJDdUl][0m
+[0m[1mmodule.s3_lambda.aws_iam_role.lambda: Refreshing state... [id=project-bedrock-lambda-role][0m
+[0m[1mmodule.s3_lambda.aws_s3_bucket.assets: Refreshing state... [id=bedrock-assets-394747153553][0m
+[0m[1mmodule.dynamodb.aws_dynamodb_table.carts: Refreshing state... [id=project-bedrock-carts][0m
+[0m[1mmodule.eks.aws_iam_role.cluster: Refreshing state... [id=project-bedrock-eks-cluster-role][0m
+[0m[1mmodule.vpc.aws_vpc.main: Refreshing state... [id=vpc-03a83bf2d9d7d12d8][0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.cluster_policy: Refreshing state... [id=project-bedrock-eks-cluster-role-20260527110412430600000001][0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.node_ecr_policy: Refreshing state... [id=project-bedrock-eks-node-role-20260527110413026300000004][0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.node_policy: Refreshing state... [id=project-bedrock-eks-node-role-20260527110412724500000003][0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.node_cni_policy: Refreshing state... [id=project-bedrock-eks-node-role-20260527110412662600000002][0m
+[0m[1mmodule.s3_lambda.aws_iam_role_policy_attachment.lambda_basic: Refreshing state... [id=project-bedrock-lambda-role-20260527164056919000000001][0m
+[0m[1mmodule.s3_lambda.aws_lambda_function.asset_processor: Refreshing state... [id=bedrock-asset-processor][0m
+[0m[1mmodule.vpc.aws_internet_gateway.main: Refreshing state... [id=igw-086bbe093b1e5cfc3][0m
+[0m[1mmodule.vpc.aws_subnet.public[1]: Refreshing state... [id=subnet-0b4e5211e780e7b7c][0m
+[0m[1mmodule.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-0343a99a16889ae9a][0m
+[0m[1mmodule.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-0f5fbf63532393701][0m
+[0m[1mmodule.vpc.aws_subnet.private[1]: Refreshing state... [id=subnet-02bd2719c450c77b5][0m
+[0m[1mmodule.eks.aws_security_group.cluster: Refreshing state... [id=sg-05410e18016a71b57][0m
+[0m[1mmodule.vpc.aws_route_table.public: Refreshing state... [id=rtb-0a8596a0d15c7280f][0m
+[0m[1mmodule.rds.aws_security_group.rds: Refreshing state... [id=sg-044db096a27a3e158][0m
+[0m[1mmodule.vpc.aws_nat_gateway.main: Refreshing state... [id=nat-0297914e2cb5a8449][0m
+[0m[1mmodule.rds.aws_db_subnet_group.main: Refreshing state... [id=project-bedrock-db-subnet-group][0m
+[0m[1mmodule.eks.aws_eks_cluster.main: Refreshing state... [id=project-bedrock-cluster][0m
+[0m[1mmodule.vpc.aws_route_table.private: Refreshing state... [id=rtb-0ae3ea5de9e0ac4d2][0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-0b627b2600e92fb97][0m
+[0m[1mmodule.vpc.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-0cc753a938643cffb][0m
+[0m[1mmodule.vpc.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-07f60a5cc52978a47][0m
+[0m[1mmodule.vpc.aws_route_table_association.private[1]: Refreshing state... [id=rtbassoc-0cfa61876723c2b3a][0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Refreshing state... [id=project-bedrock-cluster:project-bedrock-node-group][0m
+[0m[1mmodule.s3_lambda.aws_s3_bucket_public_access_block.assets: Refreshing state... [id=bedrock-assets-394747153553][0m
+[0m[1mmodule.s3_lambda.aws_lambda_permission.s3_trigger: Refreshing state... [id=AllowS3Invoke][0m
+[0m[1mmodule.s3_lambda.aws_s3_bucket_notification.asset_upload: Refreshing state... [id=bedrock-assets-394747153553][0m
+[0m[1mmodule.rds.aws_db_instance.mysql: Refreshing state... [id=db-B574FVNO7QP5PXDYMLY57XVZ3I][0m
+[0m[1mmodule.rds.aws_db_instance.postgres: Refreshing state... [id=db-EOFBOL3LJAPQPHRYO2A34LSRGA][0m
+[0m[1mmodule.rds.aws_secretsmanager_secret_version.mysql: Refreshing state... [id=arn:aws:secretsmanager:us-east-1:394747153553:secret:project-bedrock/rds/mysql-1BOrAg|terraform-20260527133511392300000003][0m
+[0m[1mmodule.rds.aws_secretsmanager_secret_version.postgres: Refreshing state... [id=arn:aws:secretsmanager:us-east-1:394747153553:secret:project-bedrock/rds/postgres-pJDdUl|terraform-20260527153439886400000001][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+[31m-[0m/[32m+[0m destroy and then create replacement[0m
+
+Terraform will perform the following actions:
+
+[1m  # module.eks.aws_eks_node_group.main[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "aws_eks_node_group" "main" {
+      [33m~[0m[0m ami_type               = "AL2023_x86_64_STANDARD" -> (known after apply)
+      [33m~[0m[0m arn                    = "arn:aws:eks:us-east-1:394747153553:nodegroup/project-bedrock-cluster/project-bedrock-node-group/d0cf34a4-4ef2-ed42-73e4-25263deaa26d" -> (known after apply)
+      [33m~[0m[0m capacity_type          = "ON_DEMAND" -> (known after apply)
+      [33m~[0m[0m disk_size              = 20 -> (known after apply)
+      [33m~[0m[0m id                     = "project-bedrock-cluster:project-bedrock-node-group" -> (known after apply)
+      [33m~[0m[0m instance_types         = [ [31m# forces replacement[0m[0m
+          [33m~[0m[0m "t3.micro" [33m->[0m[0m "t3.small",
+        ]
+      [31m-[0m[0m labels                 = {} [90m-> null[0m[0m
+      [32m+[0m[0m node_group_name_prefix = (known after apply)
+      [33m~[0m[0m release_version        = "1.34.8-20260520" -> (known after apply)
+      [33m~[0m[0m resources              = [
+          [31m-[0m[0m {
+              [31m-[0m[0m autoscaling_groups              = [
+                  [31m-[0m[0m {
+                      [31m-[0m[0m name = "eks-project-bedrock-node-group-d0cf34a4-4ef2-ed42-73e4-25263deaa26d"
+                    },
+                ]
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            },
+        ] -> (known after apply)
+      [33m~[0m[0m status                 = "ACTIVE" -> (known after apply)
+        tags                   = {
+            "Name"    = "project-bedrock-node-group"
+            "Project" = "karatu-2025-capstone"
+        }
+      [33m~[0m[0m version                = "1.34" -> (known after apply)
+        [90m# (5 unchanged attributes hidden)[0m[0m
+
+      [33m~[0m[0m node_repair_config (known after apply)
+
+      [33m~[0m[0m update_config {
+          [31m-[0m[0m max_unavailable_percentage = 0 [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+
+        [90m# (1 unchanged block hidden)[0m[0m
+    }
+
+[1mPlan:[0m [0m1 to add, 0 to change, 1 to destroy.
+[0m[1m
+Do you want to perform these actions?[0m
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  [1mEnter a value:[0m [0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Destroying... [id=project-bedrock-cluster:project-bedrock-node-group][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 00m12s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 00m22s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 00m32s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 00m45s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 00m55s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 01m05s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 01m15s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 01m28s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 01m38s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 01m48s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 02m01s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 02m11s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 02m21s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 02m34s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 02m44s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 02m54s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 03m07s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 03m17s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 03m27s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 03m37s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 03m50s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 04m00s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 04m10s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 04m23s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 04m33s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 04m43s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 04m55s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 05m05s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 05m15s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 05m28s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 05m38s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 05m48s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 06m01s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still destroying... [id=project-bedrock-cluster:project-bedrock-node-group, 06m11s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Destruction complete after 6m18s[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Creating...[0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still creating... [00m10s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still creating... [00m23s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still creating... [00m33s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still creating... [00m43s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still creating... [00m56s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still creating... [01m06s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still creating... [01m16s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still creating... [01m28s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Still creating... [01m38s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_node_group.main: Creation complete after 1m48s [id=project-bedrock-cluster:project-bedrock-node-group][0m
 Releasing state lock. This may take a few moments...
 [0m[1m[32m
-Apply complete! Resources: 0 added, 0 changed, 0 destroyed.[0m
+Apply complete! Resources: 1 added, 0 changed, 1 destroyed.[0m
 [0m[1m[32m
 Outputs:
 
