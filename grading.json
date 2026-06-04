@@ -7,7 +7,7 @@
   "cluster_endpoint": {
     "sensitive": false,
     "type": "string",
-    "value": "https://08880CB072E8F3EDC237F0CF12724CFA.gr7.us-east-1.eks.amazonaws.com"
+    "value": "https://63AA4539514C7497E8B475B78D02B647.gr7.us-east-1.eks.amazonaws.com"
   },
   "cluster_name": {
     "sensitive": false,
@@ -22,6 +22,6 @@
   "vpc_id": {
     "sensitive": false,
     "type": "string",
-    "value": "vpc-03a83bf2d9d7d12d8"
+    "value": "vpc-0d9f2b95fabebec7a"
   }
 }
