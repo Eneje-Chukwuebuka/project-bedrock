@@ -2,12 +2,12 @@
   "assets_bucket_name": {
     "sensitive": false,
     "type": "string",
-    "value": "bedrock-assets-394747153553"
+    "value": "bedrock-assets-394747153553-v2"
   },
   "cluster_endpoint": {
     "sensitive": false,
     "type": "string",
-    "value": "https://63AA4539514C7497E8B475B78D02B647.gr7.us-east-1.eks.amazonaws.com"
+    "value": "https://0961EAEF0BF8B1AD7FEF67F342A2C77F.gr7.us-east-1.eks.amazonaws.com"
   },
   "cluster_name": {
     "sensitive": false,
@@ -22,6 +22,6 @@
   "vpc_id": {
     "sensitive": false,
     "type": "string",
-    "value": "vpc-0d9f2b95fabebec7a"
+    "value": "vpc-0e71e799e0e2439ce"
   }
 }

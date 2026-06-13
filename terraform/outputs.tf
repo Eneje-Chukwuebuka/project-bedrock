@@ -20,5 +20,5 @@ output "vpc_id" {
 
 output "assets_bucket_name" {
   description = "S3 assets bucket name"
-  value       = "bedrock-assets-394747153553"
+  value       = "bedrock-assets-${var.student_id}"
 }

@@ -1,13 +1,13 @@
 resource "random_password" "mysql" {
   length           = 16
-  special          = true
-  override_special = "!#$%&*()-_=+[]{}<>:?"
+  special          = false
+  override_special = ""
 }
 
 resource "random_password" "postgres" {
   length           = 16
-  special          = true
-  override_special = "!#$%&*()-_=+[]{}<>:?"
+  special          = false
+  override_special = ""
 }
 
 resource "aws_secretsmanager_secret" "mysql" {

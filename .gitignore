@@ -17,3 +17,5 @@ terraform.tfvars
 tplan
 terraform/tfplan.out
 *.tgz
+terraform/tapply
+terraform/tdestroy
