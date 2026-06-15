@@ -60,7 +60,7 @@ jobs:
           TF_VAR_rds_instance_class: "db.t3.micro"
           TF_VAR_rds_mysql_db_name: "retailstore"
           TF_VAR_rds_postgres_db_name: "retailstore"
-          TF_VAR_student_id: "394747153553"
+          TF_VAR_student_id: "394747153553-v2"
           TF_VAR_tags: '{"Project":"karatu-2025-capstone"}'
 
       - name: Post Plan as PR Comment
@@ -121,5 +121,5 @@ jobs:
           TF_VAR_rds_instance_class: "db.t3.micro"
           TF_VAR_rds_mysql_db_name: "retailstore"
           TF_VAR_rds_postgres_db_name: "retailstore"
-          TF_VAR_student_id: "394747153553"
+          TF_VAR_student_id: "394747153553-v2"
           TF_VAR_tags: '{"Project":"karatu-2025-capstone"}'
