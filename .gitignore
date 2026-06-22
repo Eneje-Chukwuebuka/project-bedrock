@@ -19,3 +19,7 @@ terraform/tfplan.out
 *.tgz
 terraform/tapply
 terraform/tdestroy
+tapply
+tdestroy
+terraform/tplan
+terraform/tdestroy
