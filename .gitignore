@@ -23,3 +23,8 @@ tapply
 tdestroy
 terraform/tplan
 terraform/tdestroy
+
+tapply
+tdestroy
+terraform/tplan
+terraform/tdestroy
