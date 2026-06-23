@@ -1,0 +1,12 @@
+app:
+  persistence:
+    provider: postgres
+    endpoint: "project-bedrock-postgres.ci5e6eg2m2hx.us-east-1.rds.amazonaws.com:5432"
+    database: "retailstore_v2"
+    secret:
+      create: true
+      username: dbadmin
+  messaging:
+    provider: in-memory
+postgresql:
+  create: false

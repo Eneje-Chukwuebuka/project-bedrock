@@ -1,0 +1,12 @@
+app:
+  persistence:
+    provider: dynamodb
+    dynamodb:
+      tableName: Items
+      createTable: false
+dynamodb:
+  create: false
+serviceAccount:
+  create: true
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::009075573825:role/bedrock-carts-dynamodb-role
