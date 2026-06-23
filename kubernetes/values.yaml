@@ -31,3 +31,4 @@ carts:
   dynamodb:
     create: false
     createTable: true
+# CI/CD app pipeline verified 2026-06-23
