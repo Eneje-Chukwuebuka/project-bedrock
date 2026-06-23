@@ -8,3 +8,4 @@ app:
       username: admin
 mysql:
   create: false
+# 1.6.1 deployment pipeline verified 2026-06-23
