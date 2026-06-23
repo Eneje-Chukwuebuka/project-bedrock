@@ -1,0 +1,115 @@
+name: Deploy Application
+
+"on":
+  push:
+    branches:
+      - main
+    paths:
+      - 'kubernetes/**'
+      - '.github/workflows/deploy-app.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'kubernetes/**'
+      - '.github/workflows/deploy-app.yml'
+
+env:
+  AWS_REGION: 'us-east-1'
+  CLUSTER_NAME: 'project-bedrock-cluster'
+  NAMESPACE: 'retail-app'
+
+jobs:
+  # On PR: validate the Helm chart renders correctly (dry-run), no live changes.
+  helm-validate:
+    name: Helm Validate (dry-run)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Setup Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: 'v3.15.2'
+
+      - name: Update kubeconfig
+        run: aws eks update-kubeconfig --name ${{ env.CLUSTER_NAME }} --region ${{ env.AWS_REGION }}
+
+      - name: Fetch DB passwords from Secrets Manager
+        id: secrets
+        run: |
+          MYSQL_PW=$(aws secretsmanager get-secret-value --secret-id project-bedrock/rds/mysql --query 'SecretString' --output text | python3 -c "import sys,json;print(json.load(sys.stdin)['password'])")
+          PG_PW=$(aws secretsmanager get-secret-value --secret-id project-bedrock/rds/postgres --query 'SecretString' --output text | python3 -c "import sys,json;print(json.load(sys.stdin)['password'])")
+          echo "::add-mask::$MYSQL_PW"
+          echo "::add-mask::$PG_PW"
+          echo "mysql_pw=$MYSQL_PW" >> "$GITHUB_OUTPUT"
+          echo "pg_pw=$PG_PW" >> "$GITHUB_OUTPUT"
+
+      - name: Helm template (validate render)
+        run: |
+          helm template retail-store kubernetes/retail-store-sample-chart-0.8.5.tgz \
+            -n ${{ env.NAMESPACE }} -f kubernetes/values.yaml \
+            --set "catalog.mysql.secret.password=${{ steps.secrets.outputs.mysql_pw }}" \
+            --set "orders.postgresql.secret.password=${{ steps.secrets.outputs.pg_pw }}" \
+            > /dev/null
+          echo "Helm chart renders successfully."
+
+  # On merge to main: actually deploy the application to the cluster.
+  helm-deploy:
+    name: Helm Deploy (live)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Setup Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: 'v3.15.2'
+
+      - name: Update kubeconfig
+        run: aws eks update-kubeconfig --name ${{ env.CLUSTER_NAME }} --region ${{ env.AWS_REGION }}
+
+      - name: Fetch DB passwords from Secrets Manager
+        id: secrets
+        run: |
+          MYSQL_PW=$(aws secretsmanager get-secret-value --secret-id project-bedrock/rds/mysql --query 'SecretString' --output text | python3 -c "import sys,json;print(json.load(sys.stdin)['password'])")
+          PG_PW=$(aws secretsmanager get-secret-value --secret-id project-bedrock/rds/postgres --query 'SecretString' --output text | python3 -c "import sys,json;print(json.load(sys.stdin)['password'])")
+          echo "::add-mask::$MYSQL_PW"
+          echo "::add-mask::$PG_PW"
+          echo "mysql_pw=$MYSQL_PW" >> "$GITHUB_OUTPUT"
+          echo "pg_pw=$PG_PW" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy application (Helm)
+        run: |
+          helm upgrade --install retail-store kubernetes/retail-store-sample-chart-0.8.5.tgz \
+            -n ${{ env.NAMESPACE }} --create-namespace \
+            -f kubernetes/values.yaml \
+            --set "catalog.mysql.secret.password=${{ steps.secrets.outputs.mysql_pw }}" \
+            --set "orders.postgresql.secret.password=${{ steps.secrets.outputs.pg_pw }}" \
+            --wait --timeout 10m
+
+      - name: Apply ingress
+        run: kubectl apply -f kubernetes/ingress.yaml -n ${{ env.NAMESPACE }}
+
+      - name: Verify deployment
+        run: |
+          kubectl get pods -n ${{ env.NAMESPACE }}
+          kubectl get ingress -n ${{ env.NAMESPACE }}
