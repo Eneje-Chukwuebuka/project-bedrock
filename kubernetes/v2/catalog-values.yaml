@@ -1,0 +1,11 @@
+app:
+  persistence:
+    provider: mysql
+    endpoint: "project-bedrock-mysql.ci5e6eg2m2hx.us-east-1.rds.amazonaws.com:3306"
+    database: "retailstore"
+    secret:
+      create: true
+      username: admin
+mysql:
+  create: false
+# 1.6.1 deployment pipeline verified 2026-06-23
